@@ -1,0 +1,50 @@
+@use "../../styles/_colors.scss" as colors;
+@use "../../styles/_mixins.scss" as *;
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  //   position: relative;
+  height: 24px;
+  width: 100%;
+  &__buttons {
+    display: flex;
+    gap: 12px;
+    width: 36.6%;
+    align-items: flex-start;
+  }
+  &__date {
+    display: flex;
+    gap: 12px;
+    width: auto;
+    cursor: pointer;
+    padding: 3px 0px 3px 0px;
+
+    span {
+      font-family: SF Pro Display;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 16px;
+      letter-spacing: 0%;
+      text-align: right;
+      color: colors.$date-menu-text-color;
+      width: max-content;
+    }
+
+    img {
+      object-fit: cover;
+      // width: 100%;
+      // height: 100%;
+      &:hover {
+        cursor: pointer;
+        @include filter;
+      }
+    }
+  }
+}
+.button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: colors.$main-text-color;
+}

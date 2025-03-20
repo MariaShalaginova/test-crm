@@ -1,0 +1,48 @@
+@use "../../styles/_colors.scss" as colors;
+
+.container {
+  position: absolute;
+  top: 30px;
+  right: 12.5vw;
+  display: flex;
+  flex-direction: column;
+  width: 14.2%;
+  height: fit-content;
+  border-radius: 4px;
+  background: colors.$white;
+  border: 1px solid colors.$audio-player-color;
+  box-shadow: 0px 0px 26px 0px colors.$box-shadow;
+
+  span {
+    font-family: SF Pro Display;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 28px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: colors.$row-text-color;
+    text-align: left;
+    padding-left: 1.2vw;
+  }
+  button {
+    width: 100%;
+    height: 40px;
+    background: colors.$white;
+    opacity: 0.13;
+    border: none;
+    text-align: left;
+    padding-left: 1.2vw;
+    &:hover {
+      opacity: 1;
+      cursor: pointer;
+      background-color: colors.$menu-hover-color;
+    }
+    &:active {
+      color: colors.$menu-text-active;
+    }
+    &.selected {
+      color: colors.$date-menu-text-color;
+      opacity: 1; // Белый цвет текста
+    }
+  }
+}

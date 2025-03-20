@@ -1,0 +1,33 @@
+@use "./styles/fonts/" as fonts;
+@use "./styles/_colors.scss" as colors;
+
+#root {
+  width: 75%;
+  max-width: 1440px;
+  margin: 80px auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  // justify-content: space-between;
+  font-family: fonts.$main-font;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  font-weight: 400;
+  min-width: 320px;
+  min-height: 100vh;
+  background: colors.$main-background-color;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}

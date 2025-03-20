@@ -1,0 +1,52 @@
+@use "../../styles/_colors.scss" as colors;
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  &_toggle {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: colors.$main-text-color;
+    &.active {
+      color: colors.$menu-text-active;
+    }
+  }
+  &__menu {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: fit-content;
+    width: 180%;
+    height: 104;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-radius: 8px;
+    height: 104;
+    top: 5px;
+    background-color: colors.$white;
+    box-shadow: 0px 4px 20px 0px #00000014;
+
+    &_item {
+      width: 100%;
+      text-align: left;
+      height: 32px;
+      padding-left: 12px;
+      padding-top: 6px;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 18px;
+      letter-spacing: 0%;
+      color: colors.$menu-text-color;
+      &:active {
+        color: colors.$menu-text-active;
+      }
+
+      &:hover {
+        background-color: colors.$menu-hover-color;
+        cursor: pointer;
+      }
+    }
+  }
+}

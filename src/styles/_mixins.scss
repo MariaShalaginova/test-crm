@@ -1,0 +1,4 @@
+@mixin filter {
+  filter: brightness(20%) saturate(100%) invert(30%) sepia(70%) saturate(1000%)
+    hue-rotate(200deg);
+}

@@ -1,0 +1,86 @@
+@use "../../styles/_colors.scss" as colors;
+@use "../../styles/_mixins.scss" as *;
+
+.audioPlayer {
+  z-index: 20;
+  pointer-events: auto;
+  width: 20vw;
+  position: absolute;
+  right: 14.5%;
+  height: 48px;
+  background-color: colors.$audio-player-color;
+  border-radius: 48px;
+  &__container {
+    display: flex;
+    width: 92%;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+
+    display: flex;
+    height: 100%;
+    .duration {
+      font-size: 15px;
+      line-height: 145%;
+      letter-spacing: 0%;
+      text-align: right;
+      color: colors.$row-text-color;
+    }
+  }
+}
+
+audio {
+  display: none;
+}
+
+.playButton,
+.closeButton,
+.downloadButton {
+  background: none;
+  width: 24px;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  transition: filter 0.3s ease;
+  height: 24px;
+
+  &:hover {
+    color: colors.$audio-button-hover;
+    @include filter;
+  }
+  img {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.playButton {
+  img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.progressBar {
+  width: 46.6%;
+  height: 4px;
+  background-color: colors.$dark-blue;
+  border-radius: 50px;
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 6px;
+    height: 4px;
+    background: colors.$dark-blue;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  &::-moz-range-thumb {
+    width: 6px;
+    height: 6px;
+    background: #007bff;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+}

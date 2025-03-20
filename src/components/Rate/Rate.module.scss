@@ -1,0 +1,34 @@
+@use "../../styles/colors" as colors;
+
+.rate {
+  padding: 4px 8px 6px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  text-align: center;
+  height: 26px;
+  width: fit-content;
+  font-family: SF Pro Display;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  border-radius: 4px;
+
+  &__bad {
+    background: colors.$light-red;
+    color: colors.$dark-red;
+    border: 1px solid colors.$dark-red;
+  }
+
+  &__good {
+    background-color: colors.$light-blue;
+    border: 1px solid colors.$dark-blue;
+    color: colors.$row-text-color;
+  }
+
+  &__excellent {
+    background-color: colors.$light-green; // Светло-зеленый
+    color: colors.$dark-green;
+    border: 1px solid colors.$dark-green;
+  }
+}

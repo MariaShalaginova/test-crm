@@ -1,0 +1,39 @@
+@use "../../styles/_colors.scss" as colors;
+
+.datepickerInput {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 12px;
+
+  &__input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 14px;
+    width: 100%;
+    cursor: pointer;
+
+    &::placeholder {
+      color: colors.$dark-blue;
+    }
+
+    &:focus {
+      border: none;
+      outline: none;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    right: 5px;
+    top: 49%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 16px;
+    // height: 20px;
+    &:hover {
+      filter: brightness(20%) saturate(100%) invert(30%) sepia(70%)
+        saturate(1000%) hue-rotate(200deg);
+    }
+  }
+}
