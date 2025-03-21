@@ -3,7 +3,7 @@ import "./App.scss";
 import Filter from "./components/Filter/Filter";
 import Table from "./components/Table/Table";
 import store from "./store/store";
-import SpinnerCat from "./components/Spinner/spinner";
+import SpinnerCat from "./components/Spinner/Spinner";
 import { observer } from "mobx-react-lite";
 
 const App = observer(() => {

@@ -6,7 +6,7 @@ import { observer } from "mobx-react-lite";
 import store from "../../store/store";
 import CustomInput from "../DateInput/DateInput";
 import { DatePickerProps } from "../../Types";
-import SpinnerCat from "../Spinner/spinner";
+import SpinnerCat from "../Spinner/Spinner";
 
 const CustomDatePicker: React.FC<DatePickerProps> = observer(() => {
   const [startDate, setStartDate] = useState<Date | null>(null);
