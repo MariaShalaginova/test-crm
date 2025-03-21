@@ -6,6 +6,7 @@ import { observer } from "mobx-react-lite";
 import store from "../../store/store";
 import CustomInput from "../DateInput/DateInput";
 import { DatePickerProps } from "../../Types";
+import SpinnerCat from "../Spinner/spinner";
 
 const CustomDatePicker: React.FC<DatePickerProps> = observer(() => {
   const [startDate, setStartDate] = useState<Date | null>(null);
@@ -22,10 +23,19 @@ const CustomDatePicker: React.FC<DatePickerProps> = observer(() => {
     if (start && end) {
       store.fetchCallsByDateRange(); // Вызываем метод для отправки запроса
     }
+
     console.log(store.dateRange);
     console.log(start);
     console.log(end);
   };
+
+  if (store.loading) {
+    return (
+      <div>
+        <SpinnerCat />
+      </div>
+    );
+  }
 
   return (
     <div className={styles.datePicker}>

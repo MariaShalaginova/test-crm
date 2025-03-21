@@ -24,6 +24,8 @@ class Store {
   sortBy: "date" | "duration" | undefined = undefined; // Параметр сортировки
   order: "ASC" | "DESC" | undefined = "ASC"; // Направление сортировки
   filteredRows: Rows[] = [];
+  loading: boolean = false;
+  error: boolean = false;
 
   constructor() {
     makeAutoObservable(this);
@@ -33,6 +35,14 @@ class Store {
     this.sortBy = sortBy;
     this.order = order;
     this.fetchCallsByDateRange(); // Отправляем запрос с новыми параметрами сортировки
+  }
+  setLoading(loading: boolean) {
+    this.loading = loading;
+    console.log("Loading:", loading);
+  }
+
+  setError(error: boolean) {
+    this.error = error;
   }
 
   // Метод для отправки запроса по временным интервалам
@@ -94,6 +104,7 @@ class Store {
     // inOut?: number
   ) {
     try {
+      this.setLoading(true);
       console.log("Отправка запроса с параметрами:", {
         date_start: dateStart,
         date_end: dateEnd,
@@ -113,6 +124,7 @@ class Store {
       if (order) {
         params.order = order;
       }
+
       const response = await axios.post(
         `${API_URL}/getList`,
         {},
@@ -127,17 +139,18 @@ class Store {
       this.rows = response.data.results;
     } catch (e) {
       console.log(e);
+      this.setError(true);
+    } finally {
+      //   console.log(this.rows);
+      console.log(toJS(this.rows));
+      this.setLoading(false);
     }
-    // finally {
-    //   console.log(this.rows);
-    console.log(toJS(this.rows));
-
-    // }
   }
 
   //получение аудиозаписи
   async getAudioRecord(recordId: string, partnershipId: string) {
     try {
+      this.setLoading(true);
       const response = await axios.post<ArrayBuffer>(
         `${API_URL}/getRecord?record=${recordId}&partnership_id=${partnershipId}`,
         {},
@@ -152,13 +165,14 @@ class Store {
       //   console.log(response.data);
       const blob = new Blob([response.data], { type: "audio/mpeg" });
       this.audioUrl = URL.createObjectURL(blob); // Создаем временный URL для Blob
-      //   this.setAudioUrl(url); // Обновляем состояние с новым URL
       this.currentRecordId = recordId;
       // console.log(this.audioUrl);
       // console.log(this.currentRecordId);
       // console.log(response.data);
     } catch (error) {
       console.error("Ошибка при получении аудиозаписи:", error);
+    } finally {
+      this.setLoading(false);
     }
   }
 
