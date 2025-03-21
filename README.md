@@ -1,3 +1,10 @@
+ТЗ: Требуется взять из фигмы проект и разработать функционал по заданию на React.  Данные можно взять с бека по API отсюда https://api.skilla.ru/testapi. Тестовый токен — testtoken.   Функционал, которую необходимо разработать:  - отображение списка звонков с выборкой по датам (date picker);  - фильтрация звонков по типу: входящие, исходящие или все звонки;  - проигрывание записи (если есть);  - сортировка по дате и продолжительности через API.  
+Оценка не реализована в API. Разместите рандомно.
+
+npm install
+
+npm run dev
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
