@@ -105,6 +105,7 @@ class Store {
   ) {
     try {
       this.setLoading(true);
+      this.setError(false);
       console.log("Отправка запроса с параметрами:", {
         date_start: dateStart,
         date_end: dateEnd,
@@ -151,6 +152,7 @@ class Store {
   async getAudioRecord(recordId: string, partnershipId: string) {
     try {
       this.setLoading(true);
+      this.setError(false);
       const response = await axios.post<ArrayBuffer>(
         `${API_URL}/getRecord?record=${recordId}&partnership_id=${partnershipId}`,
         {},
@@ -170,6 +172,7 @@ class Store {
       // console.log(this.currentRecordId);
       // console.log(response.data);
     } catch (error) {
+      this.setError(true);
       console.error("Ошибка при получении аудиозаписи:", error);
     } finally {
       this.setLoading(false);
