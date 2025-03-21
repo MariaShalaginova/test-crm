@@ -5,6 +5,8 @@ npm install
 
 npm run dev
 
+https://gregarious-bienenstitch-a5df0f.netlify.app/ 
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
